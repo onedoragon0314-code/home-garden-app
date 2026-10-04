@@ -1,0 +1,13 @@
+{
+  "id": "./",
+  "name": "家庭菜園ノート",
+  "short_name": "菜園ノート",
+  "description": "植物の土の状態と水やりの目安を管理する家庭菜園アプリ",
+  "lang": "ja",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f7f2",
+  "theme_color": "#f4f7f2",
+  "icons": [{ "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
