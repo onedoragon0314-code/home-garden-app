@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f7f2">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="家庭菜園ノート">
+  <title>家庭菜園ノート</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="家庭菜園ノート ホーム">
+      <span class="brand-mark" aria-hidden="true">🌱</span>
+      <span>家庭菜園ノート</span>
+    </a>
+    <span class="save-status" id="save-status" aria-live="polite">この端末に保存</span>
+  </header>
+  <main id="top">
+    <section class="page-heading" aria-labelledby="page-title">
+      <div><p class="eyebrow">MY GARDEN</p><h1 id="page-title">今日の菜園</h1><p class="today" id="today"></p></div>
+      <button class="button button-primary" id="add-plant-button" type="button"><span aria-hidden="true">＋</span> 植物を追加</button>
+    </section>
+    <section class="weather-section" aria-labelledby="weather-title">
+      <div class="section-heading"><div><h2 id="weather-title">今日の天気</h2><p class="section-note">天気情報を入力すると水やりの目安に反映します</p></div></div>
+      <div class="weather-fields">
+        <label>天気<select id="weather-condition"><option value="晴れ">☀️ 晴れ</option><option value="くもり">☁️ くもり</option><option value="雨">🌧️ 雨</option></select></label>
+        <label>気温<span class="input-with-unit"><input id="temperature" type="number" min="-20" max="60" step="1" inputmode="decimal"><span>℃</span></span></label>
+        <label>湿度<span class="input-with-unit"><input id="humidity" type="number" min="0" max="100" step="1" inputmode="numeric"><span>%</span></span></label>
+      </div>
+    </section>
+    <section class="plants-section" aria-labelledby="plants-title">
+      <div class="section-heading plant-heading"><div><h2 id="plants-title">育てている植物 <span class="count" id="plant-count">0</span></h2><p class="section-note">土の状態を選ぶと、水やり案内が更新されます</p></div></div>
+      <div class="plant-list" id="plant-list"></div><p class="empty-state" id="empty-state" hidden>植物はまだ登録されていません。</p>
+    </section>
+    <section class="watering-section" aria-labelledby="watering-title">
+      <div class="section-heading"><div><h2 id="watering-title">今日の水やり</h2><p class="section-note">土の状態と天気から計算した目安です</p></div></div>
+      <div class="watering-list" id="watering-list" aria-live="polite"></div>
+    </section>
+    <p class="footnote">水やりの目安です。植物や鉢の状態を見ながら調整してください。</p>
+  </main>
+  <dialog id="plant-dialog" aria-labelledby="dialog-title">
+    <form id="plant-form" method="dialog">
+      <div class="dialog-heading"><h2 id="dialog-title">植物を追加</h2><button class="icon-button" id="close-dialog-button" type="button" aria-label="閉じる">×</button></div>
+      <label for="plant-name">植物の名前</label><input id="plant-name" name="name" type="text" maxlength="30" placeholder="例：ミニトマト" required>
+      <label for="plant-icon">アイコン</label><select id="plant-icon" name="icon"><option value="🌱">🌱 苗</option><option value="🍅">🍅 トマト</option><option value="🌿">🌿 葉もの</option><option value="🥬">🥬 野菜</option><option value="🌶️">🌶️ 唐辛子</option><option value="🍓">🍓 いちご</option><option value="🌼">🌼 花</option></select>
+      <label for="pot-size">鉢の大きさ</label><span class="input-with-unit"><input id="pot-size" name="potSize" type="number" min="1" max="100" value="5" required><span>L</span></span>
+      <div class="dialog-actions"><button class="button button-secondary" id="cancel-dialog-button" type="button">キャンセル</button><button class="button button-primary" type="submit">追加する</button></div>
+    </form>
+  </dialog>
+</body>
+</html>
