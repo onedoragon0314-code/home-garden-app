@@ -1,0 +1,78 @@
+:root {
+  color-scheme: light;
+  font-family: "Yu Gothic UI", "Meiryo", sans-serif;
+  color: #24312a;
+  background: #f4f7f2;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --green: #28633c;
+  --green-dark: #194b2c;
+  --green-soft: #e7f1e5;
+  --line: #dce5da;
+  --muted: #66736a;
+  --white: #fff;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+button, input, select { font: inherit; }
+.topbar { height: 60px; padding: 0 max(24px, calc((100vw - 1000px) / 2)); display: flex; align-items: center; justify-content: space-between; background: var(--white); border-bottom: 1px solid var(--line); }
+.brand { display: inline-flex; align-items: center; gap: 9px; color: var(--green-dark); font-weight: 700; text-decoration: none; }
+.brand-mark { font-size: 22px; }
+.save-status { color: var(--muted); font-size: 12px; }
+main { width: min(100% - 40px, 920px); margin: 0 auto; padding: 38px 0 48px; }
+.page-heading, .section-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.page-heading { margin-bottom: 30px; }
+.eyebrow { margin: 0 0 4px; color: var(--green); font-size: 11px; font-weight: 700; }
+h1 { margin: 0; font-size: 28px; line-height: 1.3; }
+.today { margin: 7px 0 0; color: var(--muted); font-size: 14px; }
+h2 { margin: 0; font-size: 18px; line-height: 1.4; }
+.section-note { margin: 5px 0 0; color: var(--muted); font-size: 13px; }
+.button { min-height: 40px; padding: 0 15px; border: 1px solid transparent; border-radius: 6px; cursor: pointer; font-weight: 600; }
+.button-primary { color: #fff; background: var(--green); }
+.button-primary:hover { background: var(--green-dark); }
+.button-secondary { color: #344239; background: #fff; border-color: var(--line); }
+.button-secondary:hover { background: #f4f7f2; }
+.weather-section, .plants-section, .watering-section { padding: 23px 0; border-top: 1px solid var(--line); }
+.weather-fields { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 14px; margin-top: 18px; }
+label { display: grid; gap: 7px; color: #47544b; font-size: 13px; font-weight: 600; }
+input, select { width: 100%; min-height: 40px; padding: 0 11px; color: #26332b; background: #fff; border: 1px solid #cbd7ca; border-radius: 5px; }
+input:focus, select:focus, button:focus-visible { outline: 3px solid #a9d5a5; outline-offset: 2px; }
+.input-with-unit { position: relative; display: flex; align-items: center; }
+.input-with-unit input { padding-right: 36px; }
+.input-with-unit > span { position: absolute; right: 12px; color: var(--muted); font-size: 13px; pointer-events: none; }
+.count { display: inline-grid; min-width: 23px; height: 23px; margin-left: 5px; place-items: center; color: var(--green-dark); background: var(--green-soft); border-radius: 50%; font-size: 12px; vertical-align: 2px; }
+.plant-list { margin-top: 16px; border-top: 1px solid var(--line); }
+.plant-row { display: grid; grid-template-columns: minmax(160px, 1fr) 120px 130px 40px; align-items: center; gap: 16px; min-height: 66px; border-bottom: 1px solid var(--line); }
+.plant-name { color: #26332b; font-weight: 600; }
+.plant-pot { color: var(--muted); font-size: 13px; }
+.soil-select { min-height: 36px; }
+.icon-button { width: 36px; height: 36px; display: grid; place-items: center; padding: 0; color: #59655c; background: transparent; border: 0; border-radius: 5px; font-size: 24px; cursor: pointer; }
+.icon-button:hover { color: #a23232; background: #fff0ee; }
+.empty-state { padding: 18px 0; color: var(--muted); }
+.watering-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 20px; margin-top: 16px; }
+.watering-item { min-height: 64px; padding: 12px 14px; background: #fff; border-left: 3px solid #5b9a5d; }
+.watering-item.needs-water { border-left-color: #d38a32; }
+.watering-name { margin: 0 0 4px; font-weight: 700; }
+.watering-advice { margin: 0; color: var(--muted); font-size: 13px; }
+.footnote { margin: 4px 0 0; color: var(--muted); font-size: 12px; }
+dialog { width: min(440px, calc(100% - 32px)); padding: 24px; color: #24312a; background: #fff; border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 18px 60px #1c302022; }
+dialog::backdrop { background: #18251c66; }
+dialog form { display: grid; gap: 14px; }
+.dialog-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3px; }
+.dialog-heading h2 { font-size: 19px; }
+.dialog-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 7px; }
+@media (max-width: 600px) {
+  .topbar { height: 54px; padding: 0 16px; }
+  main { width: calc(100% - 32px); padding-top: 27px; }
+  .page-heading { align-items: flex-start; }
+  h1 { font-size: 24px; }
+  .page-heading > .button { align-self: center; padding: 0 11px; font-size: 13px; white-space: nowrap; }
+  .weather-fields { grid-template-columns: 1fr 1fr; }
+  .weather-fields label:first-child { grid-column: 1 / -1; }
+  .plant-row { grid-template-columns: minmax(105px, 1fr) 105px 36px; gap: 8px; min-height: 62px; }
+  .plant-pot { display: none; }
+  .plant-name { font-size: 14px; }
+  .soil-select { padding: 0 5px; font-size: 12px; }
+  .watering-list { grid-template-columns: 1fr; }
+}
